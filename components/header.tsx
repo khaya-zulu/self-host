@@ -10,16 +10,16 @@ export const Header = ({ currentBalance }: { currentBalance: number }) => {
       <div>
         <div>Current Balance</div>
         <div className="font-semibold text-2xl">
-          <span className="text-slate-500">R</span> {bal}
-          <span className="text-slate-500">.{deci ?? "00"}</span>
+          <span className="text-slate-600">$</span> {bal}
+          <span className="text-slate-600">.{deci ?? "00"}</span>
         </div>
       </div>
       <div className="flex flex-col gap-2 text-white">
-        <button className="p-1 px-4 text-sm bg-iris-800 rounded-md flex items-center gap-2">
+        <button className="p-1 px-4 text-sm bg-iris-800 rounded-md flex justify-center items-center gap-2">
           <Bank />
           Withdraw
         </button>
-        <button className="p-1 px-4 text-sm bg-slate-800 rounded-md flex items-center gap-2">
+        <button className="p-1 px-4 text-sm bg-slate-800 rounded-md flex justify-center items-center gap-2">
           <PiggyBank />
           Deposit
         </button>

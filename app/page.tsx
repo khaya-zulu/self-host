@@ -4,14 +4,14 @@ import { Transaction } from "@/components/transaction";
 import { getAccountInformation } from "@/utils/queries";
 
 export default async function Home() {
-  const info = await getAccountInformation("chris");
+  const info = await getAccountInformation("allot.spring86153");
 
   return (
     <main className="min-h-screen max-w-2xl mx-auto p-10">
       <div className="mb-4">
         <div>Account (**** {info.user.accountNumber})</div>
         <div className="text-lg font-semibold">
-          {info.user.username ?? "User not found"}
+          {info.user.name ?? "User not found"}
         </div>
       </div>
 

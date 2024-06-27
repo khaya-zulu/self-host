@@ -1,0 +1,46 @@
+[
+  {
+    "schemaName": "public",
+    "tableName": "Transaction",
+    "predictions": [
+      {
+        "input": "public transaction id",
+        "column": "id",
+        "shape": "UUID",
+        "confidence": 0.9862098097801208,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public transaction reference",
+        "column": "reference",
+        "shape": "FINANCE_TRANSACTION_DESCRIPTION",
+        "confidence": 0.9869155883789062,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  },
+  {
+    "schemaName": "public",
+    "tableName": "User",
+    "predictions": [
+      {
+        "input": "public user name",
+        "column": "name",
+        "shape": "USERNAME",
+        "confidence": 0.9706624150276184,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public user username",
+        "column": "username",
+        "shape": "USERNAME",
+        "confidence": 0.9716823697090149,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  }
+]

@@ -10,6 +10,7 @@ export const getAccountInformation = cache(async (username: string) => {
     select: {
       accountNumber: true,
       username: true,
+      name: true,
     },
   });
 
@@ -23,6 +24,9 @@ export const getAccountInformation = cache(async (username: string) => {
       createdAt: true,
       type: true,
       amount: true,
+    },
+    orderBy: {
+      createdAt: "desc",
     },
   });
 
@@ -44,6 +48,7 @@ export const getAccountInformation = cache(async (username: string) => {
       accountNumber: accountNumber
         ? `${accountNumber}`.slice(`${accountNumber}`.length)
         : "0000",
+      name: user?.name,
     },
   };
 });

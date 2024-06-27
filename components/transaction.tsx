@@ -10,20 +10,22 @@ export const Transaction = ({
   type,
   reference,
   createdAt,
+  amount,
 }: GetAccountInformationReturn["transactions"][number]) => {
+  const [bal, deci] = `${amount}`.split(".");
   return (
     <div className="shadow rounded-lg p-10 justify-between flex border border-slate-100">
       <div>
-        <div className="text-lg">{reference}</div>
-        <div className="text-slate-600 mt-1">
-          {format(createdAt, "dd MMM yyy, hh:mmm")}
+        <div className="text-lg">
+          <span className="text-slate-700">$</span> {bal}.{deci ?? "00"}
         </div>
+        <div className="text-slate-700 mt-1">{reference}</div>
       </div>
-      <div>
+      <div className="flex-col flex justify-center">
         <div
           className={`${
             type === "WITHDRAWAL" ? "text-rose-600" : "text-green-600"
-          } flex gap-2 items-center`}
+          } flex gap-2 items-center justify-end`}
         >
           <div
             className={`rounded-full p-1 ${
@@ -37,6 +39,9 @@ export const Transaction = ({
             )}
           </div>
           <span>{type === "WITHDRAWAL" ? "Withdrawal" : "Deposit"}</span>
+        </div>
+        <div className="text-slate-700 mt-1">
+          {format(createdAt, "dd MMM yyy, hh:mm")}
         </div>
       </div>
     </div>

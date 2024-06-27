@@ -9,14 +9,15 @@
 }
 
 body {
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
+  @apply text-base
   /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb)); */
+    rgb(var(--background-start-rgb)); */;
 }
 
 @layer utilities {

@@ -46,13 +46,19 @@ export const getAccountInformation = cache(async (username: string) => {
     user: {
       username: user?.username,
       accountNumber: accountNumber
-        ? `${accountNumber}`.slice(`${accountNumber}`.length)
+        ? `${accountNumber}`.slice(`${accountNumber}`.length - 4)
         : "0000",
       name: user?.name,
     },
   };
 });
 
-export type GetAccountInformationReturn = Awaited<
-  ReturnType<typeof getAccountInformation>
->;
+type Return<T extends (...args: any) => any> = Awaited<ReturnType<T>>;
+
+export type GetAccountInformationReturn = Return<typeof getAccountInformation>;
+
+export const getUsers = cache(async () => {
+  return db.user.findMany({ select: { username: true, name: true } });
+});
+
+export type GetUsersReturn = Return<typeof getUsers>;

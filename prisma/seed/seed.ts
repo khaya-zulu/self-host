@@ -14,7 +14,14 @@ const main = async () => {
   await seed.$resetDatabase();
 
   // Seed the database with 10 user
-  const users = await seed.user((x) => x(10));
+  const users = await seed.user((x) =>
+    x(10, {
+      accountNumber: (ctx) =>
+        // between 7 to 11 digits
+        copycat.int(ctx.seed, { min: 1_000_000, max: 10_000_000_000 }),
+    })
+  );
+  // Seed 40 transation table with users
   await seed.transaction(
     (x) =>
       x(40, {
